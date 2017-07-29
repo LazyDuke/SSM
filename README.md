@@ -4,7 +4,7 @@
 * 前端页面：Bootstrap
 * 后端框架：SpringMVC, Spring, Mybatis（暂时）
 # 前言
-　　学习SSM框架，先建一个小型的项目，一步步完善，后续根据功能的扩大，可能会加入druid,shiro等一些框架，既能学习，又能完善项目。打算在博客记录这个项目的整个学习过程。
+学习SSM框架，先建一个小型的项目，一步步完善，后续根据功能的扩大，可能会加入druid,shiro等一些框架，既能学习，又能完善项目。打算在博客记录这个项目的整个学习过程。
   ## 博客地址：
   * Coding: http://lanchengtie.coding.me/
   * Github: https://lazyduke.github.io/
@@ -34,3 +34,6 @@
             │
             └─pages                       # 前端页面文件夹
 </pre>     
+# 注意事项
+* 服务器请用tomcat 9运行，因为javassist版本有点高，tomcat 8会报一堆错，或者把javassitst换低版本也可。
+* 依赖是以全部spring和全部mybatis来写的，有可能有冗余，以后再改。
