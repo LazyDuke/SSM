@@ -37,3 +37,5 @@
 # 注意事项
 * 服务器请用tomcat 9运行，因为javassist版本有点高，tomcat 8会报一堆错，或者把javassitst换低版本也可。
 * 依赖是以全部spring和全部mybatis来写的，有可能有冗余，以后再改。
+* 请先运行sql脚本或手动在mysql中建一个需要的microblog数据库
+* 数据库连接的脚本文件改为自己的配置，并更名为db.properties
