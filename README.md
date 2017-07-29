@@ -4,8 +4,7 @@
 * 前端页面：Bootstrap
 * 后端框架：SpringMVC, Spring, Mybatis（暂时）
 # 前言
-　　学习SSM框架，先建一个小型的项目，一步步完善，后续根据功能的扩大，可能会加入druid,shiro等一些框架，既能学习，又能完善项目。
-  打算在博客记录这个项目的整个学习过程。
+　　学习SSM框架，先建一个小型的项目，一步步完善，后续根据功能的扩大，可能会加入druid,shiro等一些框架，既能学习，又能完善项目。打算在博客记录这个项目的整个学习过程。
   ## 博客地址：
   * Coding: http://lanchengtie.coding.me/
   * Github: https://lazyduke.github.io/
