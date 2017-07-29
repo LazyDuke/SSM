@@ -15,23 +15,23 @@
 ├─  pom.xml                            # Maven管理的配置文件
 │
 └─src/main                             # 开发目录
-       ├─java/com/microblog            # Java源代码
-       │        ├─controller           # 控制层
-       │        ├─dao                  # Dao层
-       │        ├─domain               # 实体层
-       │        └─mapper               # mybatis映射sql层
+       ├─java/com/microblog               # Java源代码
+       │        ├─controller              # 控制层
+       │        ├─dao                     # Dao层
+       │        ├─domain                  # 实体层
+       │        └─mapper                  # mybatis映射sql层
        │
        ├─resources                     # 项目所需资源
-       │     ├─spring                  # spring的三层配置文件
-       │     ├─.gitignore              # git的忽略文件
-       │     ├─dp.properties_sample    # 连接数据库的静态数据模板
-       │     ├─microblog.sql           # 项目所需数据库的可执行sql文件
-       │     └─mybatis-spring.xml      # mybatis配置文件
+       │     ├─spring                     # spring的三层配置文件
+       │     ├─.gitignore                 # git的忽略文件
+       │     ├─dp.properties_sample       # 连接数据库的静态数据模板
+       │     ├─microblog.sql              # 项目所需数据库的可执行sql文件
+       │     └─mybatis-spring.xml         # mybatis配置文件
        │
        └─webapp                        # 前端页面以及所需的资源
-            ├─WEB-INF                  # 配置文件夹，存了前端页面所需的静态资源和
-            │    ├─resources           # 前端页面所需的静态资源
-            │    └─web.xml             # 配置文件
+            ├─WEB-INF                     # 配置文件夹，存了前端页面所需的静态资源和
+            │    ├─resources                 # 前端页面所需的静态资源
+            │    └─web.xml                   # 配置文件
             │
-            └─pages                    # 前端页面文件夹
+            └─pages                       # 前端页面文件夹
 </pre>     
