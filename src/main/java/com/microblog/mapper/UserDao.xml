@@ -5,7 +5,7 @@
 <mapper namespace="com.microblog.dao.UserDao">
 	<!--User结果集 -->
 	<resultMap type="User" id="userMap">
-		<id property="userId" column="user_name" />
+		<id property="userId" column="user_id" />
 		<result property="userName" column="user_name" />
 		<result property="userPassword" column="user_password" />
 	</resultMap>
@@ -58,7 +58,7 @@
 				#{userName, jdbcType=VARCHAR},
 			</if>
 			<if test="userPassword != null">
-				#{user_password, jdbcType=VARCHAR},
+				#{userPassword, jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>

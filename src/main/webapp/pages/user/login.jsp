@@ -7,6 +7,11 @@
 	href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
 	src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<script type="text/javascript">
+	toastr.options.positionClass = 'toast-top-center';
+</script>
 <title>请登录</title>
 <style>
 body {
@@ -184,5 +189,11 @@ body {
 			</div>
 		</div>
 	</div>
+    <script type="text/javascript">
+        var msg = "${requestScope.msg}";
+        if (msg != "") {
+            toastr.success(msg);
+        }
+    </script>
 </body>
 </html>
