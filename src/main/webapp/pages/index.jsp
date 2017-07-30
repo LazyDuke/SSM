@@ -23,13 +23,26 @@ body {
 				<a class="navbar-brand" href="#"
 					style="font-size: 30px; font-weight: bold;">MicroBlog</a>
 			</div>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="<c:url value='/login'/>" style="font-size: 20px; font-weight: bold;">请登录</a></li>
-			</ul>
-			<div>
-				<p class="navbar-text navbar-right"
-					style="line-height: 200%; margin-bottom: 0;">您好，</p>
-			</div>
+			<c:choose >
+				<c:when test="${userName==null}">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="<c:url value='/login'/>" style="font-size: 20px; font-weight: bold;">请登录</a></li>
+					</ul>
+					<div>
+						<p class="navbar-text navbar-right"
+						   style="line-height: 200%; margin-bottom: 0;">您好，</p>
+					</div>
+				</c:when>
+				<c:when test="${userName!=null}">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#" style="font-size: 20px; font-weight: bold;">${userName}</a></li>
+					</ul>
+					<div>
+						<p class="navbar-text navbar-right"
+						   style="line-height: 200%; margin-bottom: 0;">欢迎您，</p>
+					</div>
+				</c:when>
+			</c:choose>
 		</div>
 	</nav>
 </body>

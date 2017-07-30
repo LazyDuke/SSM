@@ -164,14 +164,14 @@ body {
 	<div class="container center-vertical">
 		<div class="row">
 			<div class="col-md-offset-3 col-md-6">
-				<form class="form-horizontal">
+				<form class="form-horizontal" action="<c:url value='/user/login'/>" method="post">
 					<span class="heading">用户登录</span>
 					<div class="form-group">
-						<input type="email" class="form-control" id="inputEmail3"
+						<input type="text" class="form-control" id="userName" name="userName"
 							placeholder="用户名"> <i class="glyphicon glyphicon-user"></i>
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" id="inputPassword3"
+						<input type="password" class="form-control" id="userPassword" name="userPassword"
 							placeholder="密　码"> <i class="glyphicon glyphicon-lock"></i>
 					</div>
 					<div class="form-group">
@@ -191,9 +191,14 @@ body {
 	</div>
     <script type="text/javascript">
         var msg = "${requestScope.msg}";
-        if (msg != "") {
-            toastr.success(msg);
+        if(msg =="0"){
+            toastr.error("用户名错误，请确认后重新登录。");
+        }else if(msg=="1"){
+            toastr.error("密码错误，请确认后重新登录。");
+        }else if(msg=="2"){
+            toastr.success("注册成功！");
         }
+
     </script>
 </body>
 </html>

@@ -18,33 +18,33 @@
 		resultMap="userMap">
 		SELECT
 		<include refid="user_columns" />
-		FROM user
+		FROM b_user
 		WHERE user_name = #{userName}
 	</select>
 	<!--根据用户名查找用户密码 -->
 	<select id="getUserPasswordByUserName" parameterType="String"
 		resultType="String">
-		SELECT userPassword
-		FROM user
+		SELECT user_password
+		FROM b_user
 		WHERE user_name = #{userName}
 	</select>
 	<!--获取所有用户信息 -->
 	<select id="getAllUserInfo" resultMap="userMap">
 		SELECT
 		<include refid="user_columns" />
-		FROM user
+		FROM b_user
 	</select>
 	<!--通过id查找用户 -->
 	<select id="findUserByUserId" parameterType="int" resultMap="userMap">
 		SELECT
 		<include refid="user_columns" />
-		FROM user
+		FROM b_user
 		WHERE user_id = #{userId}
 	</select>
 	<!--插入用户信息 -->
 	<insert id="addUser" parameterType="User" keyProperty="userId"
 		useGeneratedKeys="true">
-		INSERT INTO user
+		INSERT INTO b_user
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="userName != null">
 				user_name,
@@ -64,12 +64,12 @@
 	</insert>
 	<!--根据用户名删除用户信息 -->
 	<delete id="deleteUserByUserName" parameterType="String">
-		DELETE FROM user
+		DELETE FROM b_user
 		WHERE user_name = #{userName}
 	</delete>
 	<!--更新用户信息 -->
 	<update id="updateUserByUserName" parameterType="User">
-		UPDATE user
+		UPDATE b_user
 		SET
 		<if test="userPassword != null and userPassword != '' ">
 			user_password = #{userPassword},
