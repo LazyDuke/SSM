@@ -168,11 +168,13 @@ body {
 					<span class="heading">用户登录</span>
 					<div class="form-group">
 						<input type="text" class="form-control" id="userName" name="userName"
-							placeholder="用户名"> <i class="glyphicon glyphicon-user"></i>
+							placeholder="用户名" required oninvalid="setCustomValidity('用户名不能为空');"
+							   oninput="setCustomValidity('');"> <i class="glyphicon glyphicon-user"></i>
 					</div>
 					<div class="form-group">
 						<input type="password" class="form-control" id="userPassword" name="userPassword"
-							placeholder="密　码"> <i class="glyphicon glyphicon-lock"></i>
+							placeholder="密　码" required oninvalid="setCustomValidity('密码不能为空');"
+							   oninput="setCustomValidity('');"> <i class="glyphicon glyphicon-lock"></i>
 					</div>
 					<div class="form-group">
 						<div class="main-checkbox">
@@ -198,7 +200,7 @@ body {
         }else if(msg=="2"){
             toastr.success("注册成功！");
         }
-
+        msg="";
     </script>
 </body>
 </html>

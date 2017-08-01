@@ -118,11 +118,17 @@ div
                 <span class="heading">用户注册</span>
                 <div class="form-group">
                     <input type="text" class="form-control" id="userName" name="userName"
-                           placeholder="用户名"> <i class="glyphicon glyphicon-user"></i>
+                           placeholder="用户名" required oninvalid="setCustomValidity('用户名不能为空');"
+                           oninput="setCustomValidity('');"> <i class="glyphicon glyphicon-user"></i>
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" id="userPassword" name="userPassword"
-                           placeholder="密　码"> <i class="glyphicon glyphicon-lock"></i>
+                           placeholder="密　码" required oninvalid="setCustomValidity('密码不能为空');"
+                           oninput="setCustomValidity('');"> <i class="glyphicon glyphicon-lock"></i>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="userCheckPassword"
+                           placeholder="确认密码" onchange="checkPasswords()"> <i class="glyphicon glyphicon-lock"></i>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-default">注册</button>
@@ -136,7 +142,17 @@ div
     if (msg != "") {
         toastr.error(msg);
     }
+    msg="";
+    function checkPasswords() {
+        var password=document.getElementById("userPassword");
+        var checkPassword=document.getElementById("userCheckPassword");
 
+        if(userPassword.value != userCheckPassword.value){
+            checkPassword.setCustomValidity("两次输入的密码不匹配，请重新输入！");
+        }else {
+            checkPassword.setCustomValidity("");
+        }
+    }
 </script>
 </body>
 </html>

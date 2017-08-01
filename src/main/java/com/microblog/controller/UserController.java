@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -43,7 +44,7 @@ public class UserController {
 
     //用户登录
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String userLogin(User loginUser, HttpServletRequest request){
+    public String userLogin(User loginUser, HttpServletRequest request, RedirectAttributes redirectAttributes){
         User user = userService.getUserByUserName(loginUser.getUserName());
         String password="";
 
@@ -51,7 +52,8 @@ public class UserController {
             password=userService.getPassword(user.getUserName());
             if (loginUser.getUserPassword().equals(password)){
                 request.getSession().setAttribute("userName", user.getUserName());;
-                return "index";
+                redirectAttributes.addFlashAttribute("msg", 0);
+                return "redirect:/";
             }else {
                 request.setAttribute("msg", 1);
                 return "user/login";
@@ -60,5 +62,13 @@ public class UserController {
             request.setAttribute("msg", 0);
             return "user/login";
         }
+    }
+
+    // 用户注销
+    @RequestMapping(value = "/logout")
+    public String loginOut(HttpServletRequest request, RedirectAttributes redirectAttributes) {
+        request.getSession().removeAttribute("userName");
+        redirectAttributes.addFlashAttribute("msg", 1);
+        return "redirect:/";
     }
 }
