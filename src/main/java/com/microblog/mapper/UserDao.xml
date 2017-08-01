@@ -8,10 +8,11 @@
 		<id property="userId" column="user_id" />
 		<result property="userName" column="user_name" />
 		<result property="userPassword" column="user_password" />
+		<result property="userSign" column="user_sign"/>
 	</resultMap>
 
 	<sql id="user_columns">
-		user_id,user_name,user_password
+		user_id,user_name,user_password,user_sign
 	</sql>
 	<!--根据用户名查找用户 -->
 	<select id="findUserByUserName" parameterType="String"
@@ -52,6 +53,9 @@
 			<if test="userPassword != null">
 				user_password,
 			</if>
+			<if test="userSign != null">
+				user_sign,
+			</if>
 		</trim>
 		<trim prefix="values(" suffix=")" suffixOverrides=",">
 			<if test="userName != null">
@@ -59,6 +63,9 @@
 			</if>
 			<if test="userPassword != null">
 				#{userPassword, jdbcType=VARCHAR},
+			</if>
+			<if test="userSign != null">
+				#{userSign, jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>

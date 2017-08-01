@@ -21,8 +21,9 @@
         background-size: cover;
     }
 
-    .form-bg {
-        background: #00b4ef;
+    nav {
+        padding-right: 5%;
+        padding-left: 5%;
     }
 
     .form-horizontal {

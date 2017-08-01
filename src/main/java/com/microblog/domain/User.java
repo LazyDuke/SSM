@@ -4,6 +4,15 @@ public class User {
 	private Integer userId;
 	private String userName;
 	private String userPassword;
+	private String userSign;
+
+	public String getUserSign() {
+		return userSign;
+	}
+
+	public void setUserSign(String userSign) {
+		this.userSign = userSign;
+	}
 
 	public Integer getUserId() {
 		return userId;

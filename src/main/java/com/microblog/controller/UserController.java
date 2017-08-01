@@ -51,9 +51,9 @@ public class UserController {
         if (user!=null){
             password=userService.getPassword(user.getUserName());
             if (loginUser.getUserPassword().equals(password)){
-                request.getSession().setAttribute("userName", user.getUserName());;
+                request.getSession().setAttribute("user", user);;
                 redirectAttributes.addFlashAttribute("msg", 0);
-                return "redirect:/";
+                return "redirect:/main";
             }else {
                 request.setAttribute("msg", 1);
                 return "user/login";
@@ -65,10 +65,16 @@ public class UserController {
     }
 
     // 用户注销
-    @RequestMapping(value = "/logout")
+    @RequestMapping("/logout")
     public String loginOut(HttpServletRequest request, RedirectAttributes redirectAttributes) {
-        request.getSession().removeAttribute("userName");
-        redirectAttributes.addFlashAttribute("msg", 1);
+        request.getSession().removeAttribute("user");
+        redirectAttributes.addFlashAttribute("msg", 0);
         return "redirect:/";
+    }
+
+    //用户主页
+    @RequestMapping("/mainPage")
+    public String mainPage() {
+        return "user/personalPage";
     }
 }

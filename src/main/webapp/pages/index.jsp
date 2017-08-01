@@ -21,9 +21,9 @@
             background-size: cover;
             padding-top: 70px;
         }
-        .navbar-item {
-            font-size: 15px;
-            font-weight: bold;
+        nav {
+            padding-right: 5%;
+            padding-left: 5%;
         }
     </style>
 </head>
@@ -34,56 +34,28 @@
             <a class="navbar-brand" href="#"
                style="font-size: 30px; font-weight: bold;">MicroBlog</a>
         </div>
-        <c:choose>
-            <c:when test="${sessionScope.userName==null}">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="<c:url value='/login'/>" style="font-size: 20px; font-weight: bold;">请登录</a></li>
-                </ul>
-                <div>
-                    <p class="navbar-text navbar-right"
-                       style="line-height: 200%; margin-bottom: 0;">您好，</p>
-                </div>
-            </c:when>
-            <c:when test="${sessionScope.userName!=null}">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="" class="navbar-item">
-                        <span class="glyphicon glyphicon-home" aria-hidden="true" style="vertical-align: text-bottom"></span> 首页</a>
-                    </li>
-                    <li><a href="#" class="navbar-item ">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true" style="vertical-align: text-bottom"></span> ${userName}</a>
-                    </li>
-                    <li><a href="#" class="navbar-item" id="webui-pop">
-                        <span class="glyphicon glyphicon-cog" aria-hidden="true" style="margin-top: 2px"></span></a>
-                        <div class="webui-popover-content">
-                            <ul class="dropdown-menu">
-                                <li><a href="">账号设置</a></li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="<c:url value='/user/logout'/>"><span class="glyphicon glyphicon-log-out"></span> 注 销</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </c:when>
-        </c:choose>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="<c:url value='/login'/>" style="font-size: 20px; font-weight: bold;">请登录</a></li>
+        </ul>
+        <div>
+            <p class="navbar-text navbar-right"
+               style="line-height: 200%; margin-bottom: 0;">您好，</p>
+        </div>
     </div>
 </nav>
 <script type="text/javascript">
     var msg = "${requestScope.msg}"
     if (msg == "0") {
-        toastr.success("登录成功！");
-    }
-    else if(msg == "1"){
         toastr.success("注销成功！");
     }
-    msg="";
+    msg = "";
 </script>
 <script type="text/javascript">
     $('#webui-pop').webuiPopover({
         container: '#webui-pop',
         trigger: 'hover',
-        placement:'bottom',
+        placement: 'bottom',
         animation: 'fade'
     });
 </script>

@@ -20,8 +20,9 @@ body {
 	padding-top: 70px;
 }
 
-.form-bg {
-	background: #00b4ef;
+nav {
+	padding-right: 5%;
+	padding-left: 5%;
 }
 
 .form-horizontal {
@@ -73,51 +74,6 @@ body {
 
 .form-horizontal .form-control:focus+i {
 	color: #00b4ef;
-}
-
-.form-horizontal .main-checkbox {
-	float: left;
-	width: 20px;
-	height: 20px;
-	background: #11a3fc;
-	border-radius: 50%;
-	position: relative;
-	margin: 5px 0 0 5px;
-	border: 1px solid #11a3fc;
-}
-
-.form-horizontal .main-checkbox label {
-	width: 20px;
-	height: 20px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	cursor: pointer;
-}
-
-.form-horizontal .main-checkbox label:after {
-	content: "";
-	width: 10px;
-	height: 5px;
-	position: absolute;
-	top: 5px;
-	left: 4px;
-	border: 3px solid #fff;
-	border-top: none;
-	border-right: none;
-	background: transparent;
-	opacity: 0;
-	-webkit-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-}
-
-.form-horizontal .main-checkbox input[type=checkbox] {
-	visibility: hidden;
-}
-
-.form-horizontal .main-checkbox input[type=checkbox]:checked+label:after
-	{
-	opacity: 1;
 }
 
 .form-horizontal .text {
@@ -177,11 +133,6 @@ body {
 							   oninput="setCustomValidity('');"> <i class="glyphicon glyphicon-lock"></i>
 					</div>
 					<div class="form-group">
-						<div class="main-checkbox">
-							<input type="checkbox" value="None" id="checkbox1" name="check" />
-							<label for="checkbox1"></label>
-						</div>
-						<span class="text">记住密码</span>
 						<button type="submit" class="btn btn-default">登录</button>
 					</div>
 					<div class="register">

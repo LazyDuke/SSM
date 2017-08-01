@@ -3,13 +3,28 @@ package com.microblog.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class MainController {
 	
 	//显示主页
 	@RequestMapping("/")
-    public String index() {
+    public String index(HttpSession session) {
+        if(session.getAttribute("user")!=null){
+            return "redirect:/main";
+        }
         return "index";
+    }
+
+    //显示个人首页
+    @RequestMapping("/main")
+    public String main(HttpSession session) {
+        if (session.getAttribute("user")==null){
+            return "redirect:/";
+        }
+	    return "main";
     }
 	
 	// 显示用户登录页面
