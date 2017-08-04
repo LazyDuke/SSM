@@ -6,28 +6,36 @@
 	<!--User结果集 -->
 	<resultMap type="User" id="userMap">
 		<id property="userId" column="user_id" />
-		<result property="userName" column="user_name" />
+		<result property="userNickname" column="user_nickname" />
 		<result property="userPassword" column="user_password" />
 		<result property="userSign" column="user_sign"/>
+		<result property="userGender" column="user_gender"/>
+		<result property="userPhone" column="user_phone"/>
+		<result property="userEmail" column="user_email"/>
+		<result property="blogNum" column="blog_num"/>
+		<result property="fansNum" column="fans_num"/>
+		<result property="followNum" column="follow_num"/>
+		<result property="userName" column="user_name"/>
 	</resultMap>
 
 	<sql id="user_columns">
-		user_id,user_name,user_password,user_sign
+		user_id,user_nickname,user_name,user_password,user_sign,user_gender,
+		user_phone,user_email,blog_num,fans_num,follow_num,message_num
 	</sql>
 	<!--根据用户名查找用户 -->
-	<select id="findUserByUserName" parameterType="String"
+	<select id="findUserByUserNickname" parameterType="String"
 		resultMap="userMap">
 		SELECT
 		<include refid="user_columns" />
 		FROM b_user
-		WHERE user_name = #{userName}
+		WHERE user_nickname = #{userNickname}
 	</select>
 	<!--根据用户名查找用户密码 -->
-	<select id="getUserPasswordByUserName" parameterType="String"
+	<select id="getUserPasswordByUserNickname" parameterType="String"
 		resultType="String">
 		SELECT user_password
 		FROM b_user
-		WHERE user_name = #{userName}
+		WHERE user_nickname = #{userNickname}
 	</select>
 	<!--获取所有用户信息 -->
 	<select id="getAllUserInfo" resultMap="userMap">
@@ -47,8 +55,8 @@
 		useGeneratedKeys="true">
 		INSERT INTO b_user
 		<trim prefix="(" suffix=")" suffixOverrides=",">
-			<if test="userName != null">
-				user_name,
+			<if test="userNickname != null">
+				user_nickname,
 			</if>
 			<if test="userPassword != null">
 				user_password,
@@ -56,10 +64,22 @@
 			<if test="userSign != null">
 				user_sign,
 			</if>
+			<if test="userGender != null">
+				user_gender,
+			</if>
+			<if test="userName != null">
+				user_name,
+			</if>
+			<if test="userPhone != null">
+				user_phone,
+			</if>
+			<if test="userEmail != null">
+				user_email,
+			</if>
 		</trim>
 		<trim prefix="values(" suffix=")" suffixOverrides=",">
-			<if test="userName != null">
-				#{userName, jdbcType=VARCHAR},
+			<if test="userNickname != null">
+				#{userNickname, jdbcType=VARCHAR},
 			</if>
 			<if test="userPassword != null">
 				#{userPassword, jdbcType=VARCHAR},
@@ -67,21 +87,33 @@
 			<if test="userSign != null">
 				#{userSign, jdbcType=VARCHAR},
 			</if>
+			<if test="userGender != null">
+				#{userGender, jdbcType=VARCHAR},
+			</if>
+			<if test="userName != null">
+				#{userName, jdbcType=VARCHAR},
+			</if>
+			<if test="userPhone != null">
+				#{userPhone, jdbcType=VARCHAR},
+			</if>
+			<if test="userEmail != null">
+				#{userEmail, jdbcType=VARCHAR},
+			</if>
 		</trim>
 	</insert>
 	<!--根据用户名删除用户信息 -->
-	<delete id="deleteUserByUserName" parameterType="String">
+	<delete id="deleteUserByUserNickname" parameterType="String">
 		DELETE FROM b_user
-		WHERE user_name = #{userName}
+		WHERE user_nickname = #{userNickname}
 	</delete>
 	<!--更新用户信息 -->
-	<update id="updateUserByUserName" parameterType="User">
+	<update id="updateUserByUserNickname" parameterType="User">
 		UPDATE b_user
 		SET
 		<if test="userPassword != null and userPassword != '' ">
 			user_password = #{userPassword},
 		</if>
-		WHERE user_name = #{userName}
+		WHERE user_nickname = #{userNickname}
 	</update>
 </mapper>
 

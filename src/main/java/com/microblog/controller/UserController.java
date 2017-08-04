@@ -24,9 +24,9 @@ public class UserController {
 
         if (user != null){
             try {
-                String userName=user.getUserName();
+                String userNickname=user.getUserNickname();
 
-                if (userService.getUserByUserName(userName)==null){
+                if (userService.getUserByUserNickname(userNickname)==null){
                     userService.addUser(user);
 
                     request.setAttribute("msg",2);
@@ -45,11 +45,11 @@ public class UserController {
     //用户登录
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String userLogin(User loginUser, HttpServletRequest request, RedirectAttributes redirectAttributes){
-        User user = userService.getUserByUserName(loginUser.getUserName());
+        User user = userService.getUserByUserNickname(loginUser.getUserNickname());
         String password="";
 
         if (user!=null){
-            password=userService.getPassword(user.getUserName());
+            password=userService.getPassword(user.getUserNickname());
             if (loginUser.getUserPassword().equals(password)){
                 request.getSession().setAttribute("user", user);;
                 redirectAttributes.addFlashAttribute("msg", 0);

@@ -8,17 +8,17 @@ import com.microblog.domain.User;
 
 @Repository
 public interface UserDao {
-	public User findUserByUserName(String username);
+	public User findUserByUserNickname(String username);
 
     public User findUserByUserId(int id);
 
     public void addUser(User user);
 
-    public void deleteUserByUserName(String username);
+    public void deleteUserByUserNickname(String username);
 
-    public void updateUserByUserName(User user);
+    public void updateUserByUserNickname(User user);
 
-    public String getUserPasswordByUserName(String username);
+    public String getUserPasswordByUserNickname(String username);
 
     public List<User> getAllUserInfo();
 }

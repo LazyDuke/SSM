@@ -47,7 +47,7 @@
             </li>
             <li><a href="<c:url value='/user/mainPage'/>" class="navbar-item ">
                 <span class="glyphicon glyphicon-user" aria-hidden="true"
-                      style="vertical-align: text-bottom"></span> ${sessionScope.user.userName}</a>
+                      style="vertical-align: text-bottom"></span> ${sessionScope.user.userNickname}</a>
             </li>
             <li>
                 <a href="#" class="navbar-item" id="message-pop" style="padding-bottom: 11px;">

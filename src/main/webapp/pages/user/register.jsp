@@ -99,7 +99,7 @@
 
     .center-vertical {
         position: relative;
-        top: 25%;
+        top: 7%;
     }
 </style>
 <body>
@@ -118,18 +118,32 @@ div
             <form class="form-horizontal" action="<c:url value='/user/register'/>" method="post">
                 <span class="heading">用户注册</span>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="userName" name="userName"
+                    <input type="text" class="form-control" id="userNickname" name="userNickname"
                            placeholder="用户名" required oninvalid="setCustomValidity('用户名不能为空');"
                            oninput="setCustomValidity('');"> <i class="glyphicon glyphicon-user"></i>
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" id="userPassword" name="userPassword"
-                           placeholder="密　码" required oninvalid="setCustomValidity('密码不能为空');"
+                           placeholder="密 码" required oninvalid="setCustomValidity('密码不能为空');"
                            oninput="setCustomValidity('');"> <i class="glyphicon glyphicon-lock"></i>
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" id="userCheckPassword"
                            placeholder="确认密码" onchange="checkPasswords()"> <i class="glyphicon glyphicon-lock"></i>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="userName" name="userName"
+                           placeholder="真实姓名" required oninvalid="setCustomValidity('真实姓名不能为空');"
+                           oninput="setCustomValidity('');"> <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="userEmail" name="userEmail"
+                           placeholder="电子邮箱" required> <i class="glyphicon glyphicon-envelope"></i>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="userPhone" name="userPhone"
+                           placeholder="手 机" required pattern="/^1(3|4|5|7|8)\d{9}$/" oninvalid="setCustomValidity('请输入正确的手机号');"
+                           oninput="setCustomValidity('');"> <i class="glyphicon glyphicon-earphone"></i>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-default">注册</button>
@@ -148,7 +162,7 @@ div
         var password=document.getElementById("userPassword");
         var checkPassword=document.getElementById("userCheckPassword");
 
-        if(userPassword.value != userCheckPassword.value){
+        if(password.value != checkPassword.value){
             checkPassword.setCustomValidity("两次输入的密码不匹配，请重新输入！");
         }else {
             checkPassword.setCustomValidity("");

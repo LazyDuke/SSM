@@ -123,7 +123,7 @@ nav {
 				<form class="form-horizontal" action="<c:url value='/user/login'/>" method="post">
 					<span class="heading">用户登录</span>
 					<div class="form-group">
-						<input type="text" class="form-control" id="userName" name="userName"
+						<input type="text" class="form-control" id="userNickname" name="userNickname"
 							placeholder="用户名" required oninvalid="setCustomValidity('用户名不能为空');"
 							   oninput="setCustomValidity('');"> <i class="glyphicon glyphicon-user"></i>
 					</div>

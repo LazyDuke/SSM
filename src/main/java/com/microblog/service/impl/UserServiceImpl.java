@@ -20,20 +20,20 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public void updateUserByUserName(User user) {
+    public void updateUserByUserNickname(User user) {
         if (user != null) {
-            userDao.updateUserByUserName(user);
+            userDao.updateUserByUserNickname(user);
         }
     }
 
-    public User getUserByUserName(String userName) {
+    public User getUserByUserNickname(String userName) {
         if (userName == null) {
             return null;
         }
-        return userDao.findUserByUserName(userName);
+        return userDao.findUserByUserNickname(userName);
     }
 
-    public void deleteUserByUserName(String userName) {
+    public void deleteUserByUserNickname(String userName) {
 
     }
 
@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
         if (userName == null) {
             return null;
         }
-        return userDao.getUserPasswordByUserName(userName);
+        return userDao.getUserPasswordByUserNickname(userName);
     }
 
     public List<User> getAllUser() {
